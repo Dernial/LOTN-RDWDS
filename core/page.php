@@ -30,7 +30,7 @@ class Page
 	/**
 	 * Takes all input: get, post, etc. sanatizes and handles
 	 * @param array $Environment the main environment array containing a lot of things
-	 * @return same $Envrionment variable with all needed inputs added
+	 * @return same $Environment variable with all needed inputs added
 	 */
 	public static function handleInput($Environment = null)
 	{
@@ -57,6 +57,44 @@ class Page
 				}
 				@reset($_REQUEST);
 			}
+		}
+		
+		return $Environment;
+	}
+
+	/**
+	 * Loads all modules
+	 * @param array $Environment the main environment array containing a lot of things
+	 * @return same $Environment variable with all page, sidebar, etc modules added.
+	 */
+	public static function loadModules($Environment = null)
+	{
+		try
+		{
+			$folder = dir(CMS_DIR_MODULES);
+			while ($mod = $folder->read())
+			{
+				if (!is_dir($mod) && !preg_match("/^_/", $mod) && preg_match("/php$/i", $mod) )
+				{
+					if(preg_match("/^!/", $mod))
+						array_unshift($moduleLoader, CMS_DIR_MODULES . "/" . $mod);
+					else 
+						$moduleLoader[] = CMS_DIR_MODULES . "/" . $mod;
+				}
+			}
+
+			foreach($moduleLoader as $moduleToLoad)
+			{
+				require_once($moduleToLoad);
+			}
+		}
+		catch( FatalLoadException $e )
+		{
+			Page::buildExceptionPage($e);
+		}
+		catch( Exception $e )
+		{
+			Page::buildExceptionPage($e);
 		}
 		
 		return $Environment;
