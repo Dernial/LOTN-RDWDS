@@ -27,6 +27,8 @@ define('CMS_ROOT', getcwd());
 
 require_once(CMS_ROOT . "/core/bootstrap.php");
 
+$Environment = Page::handleInput($Environment);
+
 print Page::handlePage($Environment);
 
 ?>

@@ -27,6 +27,37 @@ class Page
 {
 	public static $errorCode = 200;
 	
+	// Takes all input: get, post, etc. sanatizes and handles
+	public static function handleInput($Environment = null)
+	{
+		// Ensure that the request variables are safeslashed
+		// Function is borrowed from phpBB
+		if( !get_magic_quotes_gpc() )
+		{
+			if( is_array($_REQUEST) )
+			{
+				while( list($k, $v) = each($_REQUEST) )
+				{
+					if( is_array($_REQUEST[$k]) )
+					{
+						while( list($k2, $v2) = each($_REQUEST[$k]) )
+						{
+							$Environment["request"][$k][$k2] = addslashes($v2);
+						}
+						@reset($_REQUEST[$k]);
+					}
+					else
+					{
+						$Environment["request"][$k] = addslashes($v);
+					}
+				}
+				@reset($_REQUEST);
+			}
+		}
+		
+		return $Environment;
+	}
+	
 	public static function handlePage($Environment = null)
 	{
 		// Create the return value

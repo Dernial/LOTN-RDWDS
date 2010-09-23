@@ -20,7 +20,6 @@
   **/
 
 $Environment["config"]["SiteLocation"] = "http://localhost";
-$Environment["config"]["SitePath"] = "/var/www";
 $Environment["config"]["AdminGroupName"] = "Administrator";
 $Environment["config"]["SiteTitle"] = "Welcome to Land of the Nerd";
 
