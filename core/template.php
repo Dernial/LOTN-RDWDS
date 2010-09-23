@@ -105,7 +105,7 @@ class pageTemplate
 		{
 			$handle = @fopen($this->file,'r');
 			if(empty($handle))
-				throw new Exception("Error loading file:" . $this->file);
+				throw new FatalException("Error loading file:" . $this->file);
 			$str = fread($handle, filesize($this->file));
 		}
 		else

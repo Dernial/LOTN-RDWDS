@@ -1,5 +1,9 @@
 <?php
-// Config File
+/***
+  **	config.php
+  **	Main config file for the site.
+  **
+  */
 
 /***
   **	Copyright (C) 2006  Larry Kuehner
