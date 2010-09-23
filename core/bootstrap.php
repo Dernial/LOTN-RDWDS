@@ -36,7 +36,7 @@ require_once(CMS_DIR_CORE . "/template.php");
 require_once(CMS_DIR_CORE . "/page.php");
 
 // Build the main environment
-$Environment["version"] = "0.0.1";
+$Environment["version"] = "2.0.1";
 
 // Load configuration
 require_once(CMS_DIR_CONFIG . "/config.php");
