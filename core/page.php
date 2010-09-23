@@ -100,5 +100,3 @@ class Page
 		return "Error Loading Page.<br>Message was: " . $e -> msg;
 	}
 }
-
-?>

@@ -31,5 +31,3 @@ $Environment["config"]["SessionLength"] = 2678400;
 
 // By setting this to anything will disable registration, comment out to allow.
 $Environment["config"]["DisableRegistration"] = true;
-
-?>

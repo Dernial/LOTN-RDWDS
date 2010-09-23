@@ -41,4 +41,3 @@ $Environment["version"] = "2.0.1";
 // Load configuration
 require_once(CMS_DIR_CONFIG . "/config.php");
 
-?>

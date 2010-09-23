@@ -30,5 +30,3 @@ require_once(CMS_ROOT . "/core/bootstrap.php");
 $Environment = Page::handleInput($Environment);
 
 print Page::handlePage($Environment);
-
-?>

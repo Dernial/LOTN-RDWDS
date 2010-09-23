@@ -131,4 +131,4 @@ class pageTemplate
 		return $str;
 	}
 }
-?>
+

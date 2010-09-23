@@ -105,5 +105,3 @@ class UserNoPermissionException extends Exception
 		$this->code = $code;
 	}
 }
-
-?>
