@@ -22,7 +22,9 @@
   **	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   **/
 
-// Generic Error
+  /**
+	* Generic Error
+    */
 class FatalException extends Exception
 {
 	public $msg;
@@ -43,7 +45,9 @@ class FatalException extends Exception
 	}
 }
 
-// A module has failed to load correctly
+  /**
+	* A module has failed to load correctly
+    */
 class FatalModuleLoadException extends Exception
 {
 	public $msg;
@@ -64,7 +68,9 @@ class FatalModuleLoadException extends Exception
 	}
 }
 
-// Page was not found
+  /**
+	* Page was not found
+    */
 class PageNotFoundException extends Exception
 {
 	public $msg;
@@ -85,7 +91,10 @@ class PageNotFoundException extends Exception
 	}
 }
 
-// Something was trying to be accessed that the user has no permission to
+
+  /**
+	* Something was trying to be accessed that the user has no permission to
+    */
 class UserNoPermissionException extends Exception
 {
 	public $msg;

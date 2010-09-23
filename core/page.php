@@ -27,7 +27,11 @@ class Page
 {
 	public static $errorCode = 200;
 	
-	// Takes all input: get, post, etc. sanatizes and handles
+	/**
+	 * Takes all input: get, post, etc. sanatizes and handles
+	 * @param array $Environment the main environment array containing a lot of things
+	 * @return same $Envrionment variable with all needed inputs added
+	 */
 	public static function handleInput($Environment = null)
 	{
 		// Ensure that the request variables are safeslashed
@@ -58,6 +62,11 @@ class Page
 		return $Environment;
 	}
 	
+	/**
+	 * Main page building function, takes in all the environmental variables and puts the page together
+	 * @param array $Environment the main environment array containing a lot of things
+	 * @return page to be displayed
+	 */	
 	public static function handlePage($Environment = null)
 	{
 		// Create the return value
@@ -77,8 +86,11 @@ class Page
 			return Page::buildExceptionPage($e);
 		}
 	}
-	
-	// Build the error code page headers and return them
+
+	/**
+	 * Build the error code page headers and return them
+	 * @return error page to be displayed
+	 */
 	static function buildExceptionPage($e)
 	{
 		switch($e -> code)
