@@ -117,6 +117,12 @@ class Page
 			if(!isset($Environment))
 				throw new FatalException("Environment doesn't exist");
 			
+			$Environment = Page::loadModules($Environment);
+			
+			if(isset($Envionment["request"]))
+				if(isset($Envionment["request"]["p"]))
+					$Envrionment["path"]["basePage"] = $Envionment["request"]["p"];
+			
 			$page = new $Environment["theme"]();
 			
 			return $page -> buildPage($Environment);

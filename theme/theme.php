@@ -114,11 +114,12 @@ class themeClass
 		// Body
 		if(isset($Envrionment["path"]))
 		{
-			$displayPage = $Envrionment["path"]["basePage"];
+			$displayPage =$Envrionment["path"]["basePage"]();
 			
 			if(isset($Envrionment["page"][$displayPage]))
 			{
-				$pageBody = $Envrionment["page"][$displayPage] -> page($pieces);
+				$displayPageBuild = new $displayPage();
+				$pageBody = $displayPageBuild -> page($pieces);
 			}
 			else
 			{
