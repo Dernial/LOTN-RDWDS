@@ -27,6 +27,12 @@ $Environment["theme"] = 'themeClass';
 
 class themeClass
 {
+	/**
+	 * build a menu item
+	 * @param string $name the title of the item to build
+	 * @param string $path the path the item is to link to
+	 * @return the html for the menu item
+	 */
 	function makeMenuItem($name, $path)
 	{
 		global $_CONF;
@@ -41,6 +47,11 @@ class themeClass
 		return $pageMenuItem -> parse();
 	}
 	
+	/**
+	 * build the base of the page
+	 * @param array $Environment main environment file
+	 * @return the base of the page to be displayed
+	 */
 	function buildBase($Environment)
 	{
 		$page = new pageTemplate(CMS_DIR_THEME . "/core.thtml");
@@ -58,6 +69,11 @@ class themeClass
 		return $page;
 	}
 
+	/**
+	 * build the menu of the page
+	 * @param array $Environment main environment file
+	 * @return the menu of the page to be displayed
+	 */
 	function buildMenu($Environment)
 	{
 		// Return empty if there are no menu items
@@ -88,6 +104,11 @@ class themeClass
 		return $pageMenu -> parse();
 	}
 	
+	/**
+	 * build the body of the page
+	 * @param array $Environment main environment file
+	 * @return the body of the page to be displayed
+	 */
 	function buildBody($Envrionment)
 	{
 		// Body
@@ -119,11 +140,85 @@ class themeClass
 		return $pageBody;
 	}
 	
+	/**
+	 * build the floating modules of the page
+	 * @param array $Environment main environment file
+	 * @return the floating modules of the page to be displayed
+	 */
+	function buildModules($Envrionment)
+	{
+		if(!isset($Envrionment["modules"]))
+			return "";
+		
+		$modules = "";
+
+		$fModuleCount = 0;
+
+		foreach($Envrionment["modules"] as $moduleOn)
+		{
+			if($moduleOn -> moduleType == "floating")
+			{
+				$floatingModule = new pageTemplate(CMS_DIR_THEME . "/floatingModule.thtml");
+				$floatingModule -> add(array(
+								"MODULE_NUMBER" => $fModuleCount,
+								"MODULE_TOP" => $moduleOn -> moduleTop,
+								"MODULE_LEFT" => $moduleOn -> moduleLeft,
+								"MODULE_WIDTH" => $moduleOn -> moduleWidth,
+								"MODULE_HEIGHT" => $moduleOn -> moduleHeight,
+								"MODULE_BODY" => $moduleOn -> module()));
+
+				$modules .= $floatingModule -> parse();		
+				$fModuleCount++;
+			}
+
+		}
+
+		return $modules;
+	}
+	
+	/**
+	 * build the footer of the page
+	 * @param array $Environment main environment file
+	 * @return the footer of the page to be displayed
+	 */
+	function buildFooter($Envrionment)
+	{
+		$footerDisplay = "";
+
+		if(isset($Envrionment["special"]["footer"]))
+		{
+			foreach($Envrionment["special"]["footer"] as $footerModules)
+			{
+				$footerDisplay .= $footerModules->special_display();
+				$footerDisplay .= "<br>";
+			}
+		}
+		
+		$pageFooter = new pageTemplate(CMS_DIR_THEME . "/footer.thtml");
+
+		//$queries = $db -> queries();
+
+		//$pageFooter -> add("NUM_QUERIES", $queries . ( ($queries != 1) ? " queries" : " query" ));
+
+		$pageFooter -> add("FOOTER_MODULES", $footerDisplay);
+
+		//$pageFooter -> add("TIMER_TIME", 'unknown');
+
+		return $pageFooter -> parse();
+	}
+	
+	/**
+	 * Build the page, piece by piece
+	 * @param array $Environment main environment file
+	 * @return the page to be displayed
+	 */
 	function buildPage($Environment)
 	{
 		$page = $this -> buildBase($Environment);
 		$page -> add("MENU", $this -> buildMenu($Environment));
 		$page -> add("BODY", $this -> buildBody($Environment));
+		$page -> add("FLOATING_MODULES", $this -> buildModules($Environment));	
+		$page -> add("FOOTER", $this -> buildFooter($Environment));
 		
 		return $page -> parse();
 	}
