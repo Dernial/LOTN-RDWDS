@@ -88,10 +88,42 @@ class themeClass
 		return $pageMenu -> parse();
 	}
 	
+	function buildBody($Envrionment)
+	{
+		// Body
+		if(isset($Envrionment["path"]))
+		{
+			$displayPage = $Envrionment["path"]["basePage"];
+			
+			if(isset($Envrionment["page"][$displayPage]))
+			{
+				$pageBody = $Envrionment["page"][$displayPage] -> page($pieces);
+			}
+			else
+			{
+				throw new PageNotFoundException();
+			}
+		} else {
+			if(!isset($Envrionment["page"]["default"]))
+			{
+				// This is what it should do
+				//throw new PageNotFoundException();
+				
+				// For now:
+				$pageBody = "";
+			}
+			else
+				$pageBody = $Envrionment["page"]["default"] -> page();
+		}
+
+		return $pageBody;
+	}
+	
 	function buildPage($Environment)
 	{
 		$page = $this -> buildBase($Environment);
 		$page -> add("MENU", $this -> buildMenu($Environment));
+		$page -> add("BODY", $this -> buildBody($Environment));
 		
 		return $page -> parse();
 	}
