@@ -27,6 +27,7 @@
 define('CMS_DIR_MODULES', CMS_ROOT . "/modules"); 
 define('CMS_DIR_CONFIG', CMS_ROOT . "/config"); 
 define('CMS_DIR_CORE', CMS_ROOT . "/core");
+define('CMS_DIR_THEME', CMS_ROOT . "/theme");
 
 // Load up the required core functions and modules
 require_once(CMS_DIR_CORE . "/exceptionDefinitions.php");
@@ -41,3 +42,5 @@ $Environment["version"] = "2.0.1";
 // Load configuration
 require_once(CMS_DIR_CONFIG . "/config.php");
 
+// Load theme builder
+require_once(CMS_DIR_THEME . "/theme.php");

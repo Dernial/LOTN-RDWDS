@@ -1,0 +1,163 @@
+body {
+  font-family: Georgia serif;
+}
+
+table {
+    border-style: solid;
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: text-top;
+	color: #000000;
+}
+
+.mainBoxes {
+	border-style: solid;
+	border-width: 1;
+	border-color: #990000;
+	background: #000000;
+}
+
+img {
+	border-style: none;
+}
+
+A:link { 
+	color: #0000ff;
+	text-decoration: none; 
+}
+A:active { 
+	color: #0000ff;
+	text-decoration: none; 
+}
+A:visited { 
+	color: #0000ff;
+	text-decoration: none;
+}
+
+#menuItem {
+	cursor: pointer;
+	color: #cc0000;
+}
+
+#menuItemNoCursor {
+	cursor: default;
+	color: #cc0000;
+}
+
+#footer {
+	color: #555555;
+	font-size: 11px;
+	text-align: center;
+}
+
+#UserPanel {
+	color: #555555;
+	font-size: 11px;
+}
+
+#inputBox {
+	background-color: #000000;
+	color: #777777;
+}
+
+#newsFooter {
+	color: #555555;
+	text-align: right;
+	font-size:11px;
+}
+
+#dropmenudiv {
+	position:absolute;
+	border:1px solid black;
+	border-bottom-width: 0;
+	font:normal 12px Verdana;
+	line-height:18px;
+	z-index:100;
+	background-color: #000000;
+}
+
+#dropmenudiv a{
+	width: 100%;
+	display: block;
+	text-indent: 3px;
+	border-bottom: 1px solid black;
+	padding: 1px 0;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #000000;
+}
+
+#dropmenudiv a:hover{ 
+	background-color: #555555;
+}
+
+.menuButton {
+	cursor: pointer;
+}
+
+#UsersOnline {
+	color: #ffffff;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+#UsersOnlineTitle {
+	color: #ffffff;
+	font-size: 11px;
+	
+}
+
+#UsersOnlineOld {
+	color: #555555;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+#UsersOnlineTitleOld {
+	color: #555555;
+	font-size: 11px;
+	
+}
+
+#UpTime {
+	color: #ffffff;
+	font-size: 11px;
+}
+
+#PannelDiv {
+	position: absolute; 
+	left: 0px; 
+	top: 0px; 
+	width: 100%; 
+	height: 20px; 
+	visibility: visible;
+	
+} 
+
+#TitleDiv {
+	position: absolute; 
+	left: 0px; 
+	top: 45px; 
+	width: 100%; 
+	height: 100px; 
+	visibility: visible;
+	color: #FFFFFF;
+	
+} 
+
+#MudPanelDiv {
+	position: absolute; 
+	left: 50px; 
+	top: 60px; 
+	width: 175px; 
+	height: 50px; 
+	visibility: visible;
+} 
+
+
+#MenuLink {
+	color: #ffffff;
+	text-align: right;
+	font-size:20px;
+}

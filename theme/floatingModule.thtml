@@ -1,0 +1,22 @@
+
+<!-- Begin Floating Module -->
+
+<style>
+#floatingModule{MODULE_NUMBER}
+{
+	top: {MODULE_TOP};
+	left: {MODULE_LEFT};
+	width: {MODULE_WIDTH};
+	height: {MODULE_HEIGHT};
+	visibility: visible;
+	position: absolute; 
+}
+</style>
+
+<DIV id="floatingModule{MODULE_NUMBER}">
+	{MODULE_BODY}
+</DIV>
+
+
+
+<!-- End Floating Module -->

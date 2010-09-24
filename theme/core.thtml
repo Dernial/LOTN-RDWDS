@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>{SiteTitle}</title>
+{HEADER_INFO}
+<body>
+
+{HEADER}
+
+<table width="100%" valign="top">
+<tr>
+	<td width = "250px" valign="top">
+		{MENU}
+	</td>
+	<td>
+		{BODY}
+	</td>
+
+</tr>
+
+</table>
+
+{FOOTER}
+
+{FLOATING_MODULES}
+
+</body>
+</html>

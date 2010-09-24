@@ -1,0 +1,57 @@
+
+<!-- Menu -->
+
+<table width="100%" cellspacing=0>
+	<tr>
+		<td>
+			{M_ITEM_0}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_1}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_2}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_3}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_4}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_5}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_6}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_7}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_8}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{M_ITEM_9}
+		</td>
+	</tr>
+</table>
+
+<!-- End Menu -->

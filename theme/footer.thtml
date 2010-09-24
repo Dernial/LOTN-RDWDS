@@ -1,0 +1,22 @@
+
+<!-- Footer -->
+
+<table width="100%" id="footer">
+	<tr>
+		<td>
+				{FOOTER_MODULES}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<center>Site Design by Larry Kuehner.</center>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<center>Page created in: {TIMER_TIME} seconds. Page took {NUM_QUERIES} to Load.</center>
+		</td>
+	</tr>
+</table>
+
+<!-- End Footer -->

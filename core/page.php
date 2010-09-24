@@ -116,6 +116,10 @@ class Page
 			// Immedately error out if there's no environment
 			if(!isset($Environment))
 				throw new FatalException("Environment doesn't exist");
+			
+			$page = new $Environment["theme"]();
+			
+			return $page -> buildBase($Environment);
 		
 		}
 		catch(Exception $e)
