@@ -119,7 +119,7 @@ class Page
 			
 			$page = new $Environment["theme"]();
 			
-			return $page -> buildBase($Environment);
+			return $page -> buildPage($Environment);
 		
 		}
 		catch(Exception $e)

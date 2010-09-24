@@ -55,7 +55,45 @@ class themeClass
 		
 		$page -> add($Environment["config"]);
 		
-		return $page -> parse();
+		return $page;
+	}
+
+	function buildMenu($Environment)
+	{
+		// Return empty if there are no menu items
+		if(!isset($Environment["menuItem"]))
+			return "";
+		
+		// Insert the Menu
+		$pageMenu = new pageTemplate(CMS_DIR_THEME . "/menu.thtml");
+		$pageMenuItems = "";
+
+		foreach($Environment["menuItem"] as $menuNext)
+		{
+			if(is_array($menuNext))
+			{
+				foreach($menuNext as $arrayMenuItem)
+				{
+					$pageMenuItems .= $this -> makeMenuItem($arrayMenuItem["Name"],$arrayMenuItem["URL"]);
+				}
+			}
+			else
+			{
+				$pageMenuItems .= $this -> makeMenuItem($menuNext -> menuName,$menuNext -> pageURL);
+			}
+		}
+
+		$pageMenu -> add("MENU_ITEMS", $pageMenuItems);
+		
+		return $pageMenu -> parse();
 	}
 	
+	function buildPage($Environment)
+	{
+		$page = $this -> buildBase($Environment);
+		$page -> add("MENU", $this -> buildMenu($Environment));
+		
+		return $page -> parse();
+	}
+
 }
